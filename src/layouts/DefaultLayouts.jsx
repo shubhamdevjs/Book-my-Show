@@ -1,12 +1,14 @@
 import React from "react";
-import Navbar from "../Componenets/NavbarComponent";
+import HeroCarousel from "../Componenets/HeroCarousel/HeroCarouselComponent";
+import Navbar from "../Componenets/Navbar/NavbarComponent";
 
 const DefaultLayout=(props)=>{
     return(
         <div>
              <Navbar/>
              {props.children}
-             <div>Here footer component will be placed</div>
+             <HeroCarousel/>
+             <div></div>
         </div>
     );
 };

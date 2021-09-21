@@ -2,7 +2,7 @@ import React from "react";
 import DefaultHOC from "./HOC/DefaultHOC";
 
 function home() {
-  return <div>hello</div>;
+  return <div></div>;
 }
 function contact() {
   return <div>this is the contect of the center</div>;
