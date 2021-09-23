@@ -1,9 +1,8 @@
 import React from "react";
 import DefaultHOC from "./HOC/DefaultHOC";
+import HomePage from "./Pages/HomePage";
 
-function home() {
-  return <div></div>;
-}
+  
 function contact() {
   return <div>this is the contect of the center</div>;
 }
@@ -11,7 +10,7 @@ function contact() {
 function App() {
   return (
     <>
-      <DefaultHOC path="/" exact component={home}></DefaultHOC>
+      <DefaultHOC path="/" exact component={HomePage} ></DefaultHOC>
       <DefaultHOC path="/contact" exact component={contact}></DefaultHOC>
     </>
   );
