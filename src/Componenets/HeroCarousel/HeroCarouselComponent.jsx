@@ -53,6 +53,7 @@ const HeroCarousel = () => {
       speed: 5000,
       autoplaySpeed: 1000,
       cssEase: "linear"
+        
   };
 
   const settings = {

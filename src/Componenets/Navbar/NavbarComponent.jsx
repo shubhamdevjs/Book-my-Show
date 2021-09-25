@@ -75,7 +75,7 @@ function NavLg() {
 const Navbar = () => {
   return (
     <>
-      <nav className="bg-darkbackground-700 px-4 py-3">
+      <nav className="bg-premiere-750 px-4 py-3">
         <div className="md:hidden">
           {/* for mobile view screen and hide for md "medium screen". */}
           <NavSm />
