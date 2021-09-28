@@ -1,38 +1,35 @@
 import React from "react";
-import { BiChevronDown, BiMenu, BiSearch } from "react-icons/bi";
+import { BiChevronDown, BiMenu, BiSearch, BiShareAlt } from "react-icons/bi";
 function NavSm() {
   return (
     <>
-      <div className="flex items-center justify-between text-white">
+      <div className="flex items-center justify-between text-gray-700">
         <div>
-          <h1 className="text-xl font-bold">It All Starts here!</h1>
-          <span className="text-gray-300 text-base flex items-center cursor-pointer hover:text-white gap-1">
-            Pune <BiChevronDown />
-          </span>
+          <h1 className="text-xl font-bold">The Suicide Squad</h1>
         </div>
-        <div className="h-9 w-8">
-            <BiSearch className="w-full h-full"/>
+        <div className="h-8 w-8">
+            <BiShareAlt className="w-full h-full"/>
         </div>
       </div>
     </>
   );
 }
 
-function NavMd() {
-  return (
-    <>
-      <div className="flex w-full items-center bg-white gap-3 rounded-md py-1 px-3 ">
-        <BiSearch />
+// function NavMd() {
+//   return (
+//     <>
+//       <div className="flex w-full items-center bg-white gap-3 rounded-md py-1 px-3 ">
+//         <BiSearch />
 
-        <input
-          type="search"
-          className="w-full bg-transparent border-none focus:outline-none "
-          placeholder="Search for Movies Plays Sports Music Events and activities"
-        />
-      </div>
-    </>
-  );
-}
+//         <input
+//           type="search"
+//           className="w-full bg-transparent border-none focus:outline-none "
+//           placeholder="Search for Movies Plays Sports Music Events and activities"
+//         />
+//       </div>
+//     </>
+//   );
+// }
 
 function NavLg() {
   return (
@@ -72,10 +69,10 @@ function NavLg() {
   );
 }
 
-const Navbar = () => {
+const MovieNavbar = () => {
   return (
     <>
-      <nav className="bg-premiere-750 px-4 py-3">
+      <nav className=" px-4 py-3 border-b-2 bg-white lg:bg-premiere-750">
         <div className="md:hidden">
           {/* for mobile view screen and hide for md "medium screen". */}
           <NavSm />
@@ -83,7 +80,7 @@ const Navbar = () => {
 
         <div className=" hidden md:flex lg:hidden">
           {/* for medium screen display and for large and smaller scren hidden */}
-          <NavMd />
+          <NavSm />
         </div>
 
         <div className="hidden w-full lg:flex">
@@ -95,4 +92,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default MovieNavbar;

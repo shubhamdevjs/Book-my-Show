@@ -1,11 +1,10 @@
 import React from "react";
+import MovieNavbar from "../Componenets/Navbar/MovieNavbar";
 
-import Navbar from "../Componenets/Navbar/NavbarComponent";
-
-const DefaultLayout=(props)=>{
+const MovieLayout=(props)=>{
     return(
         <div>
-             <Navbar/>
+             <MovieNavbar/>
              {props.children}
             
              <div>footer</div>
@@ -13,4 +12,4 @@ const DefaultLayout=(props)=>{
     );
 };
 
-export default DefaultLayout; 
+export default MovieLayout; 
