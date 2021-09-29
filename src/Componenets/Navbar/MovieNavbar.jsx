@@ -3,7 +3,7 @@ import { BiChevronDown, BiMenu, BiSearch, BiShareAlt } from "react-icons/bi";
 function NavSm() {
   return (
     <>
-      <div className="flex items-center justify-between text-gray-700">
+      <div className="flex items-center justify-between   text-gray-700">
         <div>
           <h1 className="text-xl font-bold">The Suicide Squad</h1>
         </div>
@@ -34,7 +34,7 @@ function NavSm() {
 function NavLg() {
   return (
     <>
-      <div className="container  mx-auto flex px-4 items-center justify-between ">
+      <div className="container  mx-auto flex px-4 items-center justify-between  ">
         <div className="flex items-center gap-3 w-1/2 ">
           <div className="h-10 w-10">
             <img
@@ -72,7 +72,7 @@ function NavLg() {
 const MovieNavbar = () => {
   return (
     <>
-      <nav className=" px-4 py-3 border-b-2 bg-white lg:bg-premiere-750">
+      <nav className=" px-4 py-3  bg-white lg:bg-premiere-750">
         <div className="md:hidden">
           {/* for mobile view screen and hide for md "medium screen". */}
           <NavSm />
