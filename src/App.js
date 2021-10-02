@@ -9,9 +9,9 @@ import HomePage from "./Pages/HomePage";
 import MoviePage from "./Pages/MoviePage";
  
   
-function contact() {
-  return <div>this is the contect of the center</div>;
-}
+// function contact() {
+//   return <div>this is the contect of the center</div>;
+// }
 
 function App() {
   return (

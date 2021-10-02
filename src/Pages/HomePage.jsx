@@ -1,7 +1,7 @@
 import React from "react";
 import EntertainmentCardSlider from "../Componenets/Entertainment/EntertainmentSlider";
 import HeroCarousel from "../Componenets/HeroCarousel/HeroCarouselComponent";
-import PosterSider from "../Posterslider/PosterComponent";
+import PosterSider from "../Componenets/Posterslider/PosterComponent";
 
 export default function HomePage() {
   const Recommended = [

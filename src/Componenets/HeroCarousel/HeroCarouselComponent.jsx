@@ -33,7 +33,7 @@ import "slick-carousel/slick/slick-theme.css";
 // }
 
 const HeroCarousel = () => {
-  const [images, setImages] = useState([
+  const [images] = useState([
     "https://in.bmscdn.com/promotions/cms/creatives/1632074768803_trufflehunters_1240x300.jpg",
     "https://in.bmscdn.com/promotions/cms/creatives/1631989403120_banneradaptnewcreativematrixfightnight_webshowcase_1240x300.jpg",
     "https://in.bmscdn.com/promotions/cms/creatives/1630993174880_rannutsavpromotionalbanners_webshowcase_1240x300.jpg",
@@ -44,14 +44,14 @@ const HeroCarousel = () => {
   const settingsLG = {
     centerMode: true,
     centerPadding: "20px",
-    arrows:false,
+    arrows:true,
     // dots: true,
       infinite: true,
       slidesToShow: 1,
-      // slidesToScroll: 1,
-      autoplay: true,
-      speed: 5000,
-      autoplaySpeed: 1000,
+      slidesToScroll: 1,
+      // autoplay: true,
+      speed: 500,
+      // autoplaySpeed: 1000,
       cssEase: "linear"
         
   };

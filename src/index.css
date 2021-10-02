@@ -6,3 +6,13 @@
 body{
     background-color: rgb(248, 240, 240);
 }
+
+.slick-prev{
+    left: 3% !important;
+    z-index: 1;
+}
+
+.slick-next{
+    right: 3% !important;
+    z-index: 1;
+}
