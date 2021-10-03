@@ -1,108 +1,54 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+
 import EntertainmentCardSlider from "../Componenets/Entertainment/EntertainmentSlider";
 import HeroCarousel from "../Componenets/HeroCarousel/HeroCarouselComponent";
 import PosterSider from "../Componenets/Posterslider/PosterComponent";
 
 export default function HomePage() {
-  const Recommended = [
-    {
-      src: "https://in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:oi-discovery-catalog@@icons@@premiere-icon.png,ox-322,oy-20/et00300013-pzhwetjkvy-portrait.jpg",
-      title: "Fast and Furious 9",
-      subtitle: "Action / Adventure / Crime / Thriller",
-    },
-    {
-      src: "https://in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:oi-discovery-catalog@@icons@@premiere-icon.png,ox-322,oy-20/et00137312-qszmhzktyk-portrait.jpg",
-      title: "Fast and Furious 9",
-      subtitle: "Action / Adventure / Crime / Thriller",
-    },
-    {
-      src: "https://in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:oi-discovery-catalog@@icons@@premiere-icon.png,ox-322,oy-20/et00304063-lhucxfrvtz-portrait.jpg",
-      title: "Fast and Furious 9",
-      subtitle: "Action / Adventure / Crime / Thriller",
-    },
-    {
-      src: "https://in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:oi-discovery-catalog@@icons@@premiere-icon.png,ox-322,oy-20/et00312065-scvrrhkcsf-portrait.jpg",
-      title: "Fast and Furious 9",
-      subtitle: "Action / Adventure / Crime / Thriller",
-    },
-    {
-      src: "https://in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:oi-discovery-catalog@@icons@@premiere-icon.png,ox-322,oy-20/et00047164-appgcvtkry-portrait.jpg",
-      title: "Fast and Furious 9",
-      subtitle: "Action / Adventure / Crime / Thriller",
-    },
-    {
-      src: "https://in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:oi-discovery-catalog@@icons@@premiere-icon.png,ox-322,oy-20/et00137312-qszmhzktyk-portrait.jpg",
-      title: "Fast and Furious 9",
-      subtitle: "Action / Adventure / Crime / Thriller",
-    },
-    {
-      src: "https://in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:ote-VGh1LCAzMCBTZXA%3D,ots-29,otc-FFFFFF,oy-612,ox-24/et00309320-rcpsykwxev-portrait.jpg",
-      title: "Fast and Furious 9",
-      subtitle: "Action / Adventure / Crime / Thriller",
-    },
-    {
-      src: "https://in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:oi-discovery-catalog@@icons@@premiere-icon.png,ox-322,oy-20/et00137312-qszmhzktyk-portrait.jpg",
-      title: "Fast and Furious 9",
-      subtitle: "Action / Adventure / Crime / Thriller",
-    },
-  ];
+  const [recommendedMovies, setRecommendedMovies] = useState([]);
+  const [premiereMovies, setPremiereMovies] = useState([]);
+  const [onlineStreamEvents, setOnlineStreamEvents] = useState([]);
+  
 
-  const Premiere = [
-    {
-      src: "https://in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:oi-discovery-catalog@@icons@@premiere-icon.png,ox-322,oy-20/et00313350-qavljbzgvj-portrait.jpg",
-      title: "The Space Walker",
-      subtitle: "English",
-    },
-    {
-      src: "https://in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:oi-discovery-catalog@@icons@@premiere-icon.png,ox-322,oy-20/et00309402-pkhgxbxpmd-portrait.jpg",
-      title: "The Suicide Squad",
-      subtitle: "English",
-    },
-    {
-      src: "https://in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:oi-discovery-catalog@@icons@@premiere-icon.png,ox-322,oy-20/et00122455-lsbpqzesrb-portrait.jpg",
-      title: "The Conjuring",
-      subtitle: "English",
-    },
-    {
-      src: "https://in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:oi-discovery-catalog@@icons@@premiere-icon.png,ox-322,oy-20/et00047164-appgcvtkry-portrait.jpg",
-      title: "Justice league",
-      subtitle: "English",
-    },
-    {
-      src: "https://in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:oi-discovery-catalog@@icons@@premiere-icon.png,ox-322,oy-20/et00047164-appgcvtkry-portrait.jpg",
-      title: "Justice league",
-      subtitle: "English",
-    },
-    {
-      src: "https://in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:oi-discovery-catalog@@icons@@premiere-icon.png,ox-322,oy-20/et00313350-qavljbzgvj-portrait.jpg",
-      title: "The Space Walker",
-      subtitle: "English",
-    },
-    {
-      src: "https://in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:oi-discovery-catalog@@icons@@premiere-icon.png,ox-322,oy-20/et00309402-pkhgxbxpmd-portrait.jpg",
-      title: "The Suicide Squad",
-      subtitle: "English",
-    },
-    {
-      src: "https://in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:oi-discovery-catalog@@icons@@premiere-icon.png,ox-322,oy-20/et00122455-lsbpqzesrb-portrait.jpg",
-      title: "The Conjuring",
-      subtitle: "English",
-    },
-    {
-      src: "https://in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:oi-discovery-catalog@@icons@@premiere-icon.png,ox-322,oy-20/et00047164-appgcvtkry-portrait.jpg",
-      title: "Justice league",
-      subtitle: "English",
-    },
-    {
-      src: "https://in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:oi-discovery-catalog@@icons@@premiere-icon.png,ox-322,oy-20/et00047164-appgcvtkry-portrait.jpg",
-      title: "Justice league",
-      subtitle: "English",
-    },
-  ];
+  useEffect(() => {
+    const requestPopularMovies = async () => {
+      const getPopularMovies = await axios.get("/movie/popular");
+      setRecommendedMovies(getPopularMovies.data.results);
+      console.log(getPopularMovies);
+    };
+
+    requestPopularMovies();
+  }, []);
+
+  useEffect(() => {
+    const requestTopratedMovies = async () => {
+      const getTopratedMovies = await axios.get("/movie/top_rated");
+      setPremiereMovies(getTopratedMovies.data.results);
+    };
+
+    requestTopratedMovies();
+  }, []);
+
+  useEffect(() => {
+    const requestUpcomingMovies = async () => {
+      const getUpcomingMovies = await axios.get("/movie/upcoming");
+      setOnlineStreamEvents(getUpcomingMovies.data.results);
+    };
+
+    requestUpcomingMovies();
+  }, []);
+
   return (
     <>
       <HeroCarousel />
-      <div className="px-12 py-10"><img className="w-full h-full" src="https://in.bmscdn.com/discovery-catalog/collections/tr:w-1440,h-120/lead-in-v3-collection-202102040828.png" alt="bookmark" /></div>
+      <div className="px-12 py-10">
+        <img
+          className="w-full h-full"
+          src="https://in.bmscdn.com/discovery-catalog/collections/tr:w-1440,h-120/lead-in-v3-collection-202102040828.png"
+          alt="bookmark"
+        />
+      </div>
       <div className="mx-auto container md:px-12 my-8">
         <h1 className="text-2xl font-bold text-gray-800 my-3">
           This is Entertainment
@@ -115,7 +61,7 @@ export default function HomePage() {
           title="Recommended Movies"
           subtitle="List of recommended movies"
           isDark={false}
-          posterimg={Recommended}
+          posterimg={recommendedMovies}
         />
       </div>
 
@@ -132,7 +78,7 @@ export default function HomePage() {
             title="Premiere"
             subtitle="Brand new releases every Friday"
             isDark={true}
-            posterimg={Premiere}
+            posterimg={premiereMovies}
           />
         </div>
       </div>
@@ -142,16 +88,16 @@ export default function HomePage() {
           title="Online Streaming Events"
           subtitle=""
           isDark={false}
-          posterimg={Recommended}
+          posterimg={onlineStreamEvents}
         />
       </div>
-      
+
       <div className="container mx-auto md:px-12 my-12">
         <PosterSider
-          title="Outdoor Events"
+          title="Upcoming Movies"
           subtitle=""
           isDark={false}
-          posterimg={Recommended}
+          posterimg={recommendedMovies}
         />
       </div>
       {/* <div className="container mx-auto md:px-12 my-8"></div> */}

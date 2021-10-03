@@ -61,22 +61,22 @@ const HeroCarousel = () => {
 
   const settings = {
     centerMode: true,
-    centerPadding: "20px",
+    centerPadding: "50px",
 
     Infinity: true,
     slidesToShow: 1,
-    // slidesToScroll: 1,
+    slidesToScroll: 1,
     autoplay: true,
-    speed: 5000,
-    autoplaySpeed: 1000,
-    // cssEase: "linear"
+    speed: 500  ,
+    // autoplaySpeed: 1000,
+    cssEase: "linear"
   };
   return (
     <>
       <div className="lg:hidden">
         <HeroSlider {...settings}>
           {images.map((image) => (
-            <div className="w-full h-56 md:h-80 py-3">
+            <div className="w-full h-full md:h-80 py-3">
               <img
                 src={`https://image.tmdb.org/t/p/original${image.backdrop_path}`}
                 alt="Hero Banner"
@@ -89,7 +89,7 @@ const HeroCarousel = () => {
       <div className="hidden lg:block">
         <HeroSlider {...settingsLG}>
           {images.map((image) => (
-            <div className="w-full h-96 px-2 py-3">
+            <div className="w-full h-5/6 px-2 py-3">
               <img
                 src={`https://image.tmdb.org/t/p/original${image.backdrop_path}`}
                 alt="Hero Banner"
