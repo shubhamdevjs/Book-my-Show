@@ -1,11 +1,19 @@
-import React from "react";
+import React, {useContext} from "react";
 import { BiChevronDown, BiMenu, BiSearch, BiShareAlt } from "react-icons/bi";
+
+// Context
+import { MovieContext } from "../../Context/MovieContext";
+
+
 function NavSm() {
+
+  const {movie} = useContext(MovieContext)
+
   return (
     <>
       <div className="flex items-center justify-between   text-gray-700">
         <div>
-          <h1 className="text-xl font-bold">The Suicide Squad</h1>
+          <h1 className="text-xl font-bold">{movie.original_title}</h1>
         </div>
         <div className="h-8 w-8">
             <BiShareAlt className="w-full h-full"/>
@@ -73,15 +81,15 @@ const MovieNavbar = () => {
   return (
     <>
       <nav className=" px-4 py-3  bg-white lg:bg-premiere-750">
-        <div className="md:hidden">
+        <div className="lg:hidden">
           {/* for mobile view screen and hide for md "medium screen". */}
           <NavSm />
         </div>
 
-        <div className=" hidden md:flex lg:hidden">
+        {/* <div className=" hidden md:flex lg:hidden"> */}
           {/* for medium screen display and for large and smaller scren hidden */}
-          <NavSm />
-        </div>
+          {/* <NavSm /> */}
+        {/* </div> */}
 
         <div className="hidden w-full lg:flex">
           {/* for large screen display and hide for all other */}

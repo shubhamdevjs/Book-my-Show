@@ -1,14 +1,57 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import Slider from "react-slick";
+import { useParams } from "react-router";
+import axios from "axios";  
 
+//icons
 import { FaCcVisa, FaCcApplePay } from "react-icons/fa";
 
+//components
 import MovieHero from "../Componenets/MovieHero/MovieHeroComponent";
 import CastMembers from "../Componenets/Cast/CastComponent";
 import PosterSider from "../Componenets/Posterslider/PosterComponent";
 
+//context
+import { useContext } from "react/cjs/react.development";
+import { MovieContext } from "../Context/MovieContext";
+
 
 const MoviePage = () => {
+
+const { movie } = useContext(MovieContext);
+
+    const { id } = useParams();
+    const [cast, setCast] = useState([]);
+    const [similarMovies, setSimilarMovies] = useState([]);
+    const [recommended, setRecommended] = useState([]);
+
+    useEffect(() => {
+        const requestCast = async () => {
+            const getCast = await axios.get(`/movie/${id}/credits`);
+            setCast(getCast.data.cast);
+        };
+        requestCast();
+    }, [id]);
+
+    useEffect(() => {
+        const requestSimilarMovies = async () => {
+            const getSimilarMovies = await axios.get(`/movie/${id}/similar`);
+            setSimilarMovies(getSimilarMovies.data.results);
+        };
+        requestSimilarMovies();
+    }, [id]);
+
+    useEffect(() => {
+        const requestRecommendedMovies = async () => {
+            const getRecommendedMovies = await axios.get(
+                `/movie/${id}/recommendations`
+            );
+            setRecommended(getRecommendedMovies.data.results);
+        };
+        requestRecommendedMovies();
+    }, [id]);
+
+
   const settingsCast = {
     infinite: false,
     speed: 500,
@@ -75,88 +118,7 @@ const MoviePage = () => {
     ],
   };
 
-  const castdata = [
-    {
-      profile_path:
-        "https://in.bmscdn.com/iedb/artist/images/website/poster/large/margot-robbie-38083-28-01-2019-10-59-34.jpg",
-      original_name: "Margot Robbie",
-      role: "Harley Quinn",
-    },
-    {
-      profile_path:
-        "https://in.bmscdn.com/iedb/artist/images/website/poster/large/margot-robbie-38083-28-01-2019-10-59-34.jpg",
-      original_name: "Margot Robbie",
-      role: "Harley Quinn",
-    },
-    {
-      profile_path:
-        "https://in.bmscdn.com/iedb/artist/images/website/poster/large/margot-robbie-38083-28-01-2019-10-59-34.jpg",
-      original_name: "Margot Robbie",
-      role: "Harley Quinn",
-    },
-    {
-      profile_path:
-        "https://in.bmscdn.com/iedb/artist/images/website/poster/large/margot-robbie-38083-28-01-2019-10-59-34.jpg",
-      original_name: "Margot Robbie",
-      role: "Harley Quinn",
-    },
-    {
-      profile_path:
-        "https://in.bmscdn.com/iedb/artist/images/website/poster/large/margot-robbie-38083-28-01-2019-10-59-34.jpg",
-      original_name: "Margot Robbie",
-      role: "Harley Quinn",
-    },
-    {
-      profile_path:
-        "https://in.bmscdn.com/iedb/artist/images/website/poster/large/margot-robbie-38083-28-01-2019-10-59-34.jpg",
-      original_name: "Margot Robbie",
-      role: "Harley Quinn",
-    },
-    {
-      profile_path:
-        "https://in.bmscdn.com/iedb/artist/images/website/poster/large/margot-robbie-38083-28-01-2019-10-59-34.jpg",
-      original_name: "Margot Robbie",
-      role: "Harley Quinn",
-    },
-  ];
-
-  const similarMovies = [
-    {
-      src: "https://in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:oi-discovery-catalog@@icons@@premiere-icon.png,ox-322,oy-20/et00309402-pkhgxbxpmd-portrait.jpg",
-      title: "The Suicide Squad",
-      subtitle: "English",
-    },
-    {
-      src: "https://in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:oi-discovery-catalog@@icons@@premiere-icon.png,ox-322,oy-20/et00309402-pkhgxbxpmd-portrait.jpg",
-      title: "The Suicide Squad",
-      subtitle: "English",
-    },
-    {
-      src: "https://in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:oi-discovery-catalog@@icons@@premiere-icon.png,ox-322,oy-20/et00309402-pkhgxbxpmd-portrait.jpg",
-      title: "The Suicide Squad",
-      subtitle: "English",
-    },
-    {
-      src: "https://in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:oi-discovery-catalog@@icons@@premiere-icon.png,ox-322,oy-20/et00309402-pkhgxbxpmd-portrait.jpg",
-      title: "The Suicide Squad",
-      subtitle: "English",
-    },
-    {
-      src: "https://in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:oi-discovery-catalog@@icons@@premiere-icon.png,ox-322,oy-20/et00309402-pkhgxbxpmd-portrait.jpg",
-      title: "The Suicide Squad",
-      subtitle: "English",
-    },
-    {
-      src: "https://in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:oi-discovery-catalog@@icons@@premiere-icon.png,ox-322,oy-20/et00309402-pkhgxbxpmd-portrait.jpg",
-      title: "The Suicide Squad",
-      subtitle: "English",
-    },
-    {
-      src: "https://in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:oi-discovery-catalog@@icons@@premiere-icon.png,ox-322,oy-20/et00309402-pkhgxbxpmd-portrait.jpg",
-      title: "The Suicide Squad",
-      subtitle: "English",
-    },
-  ];
+ 
 
   return (
     <>
@@ -165,9 +127,7 @@ const MoviePage = () => {
         <div className="flex flex-col gap-3">
           <h3 className="text-2xl font-bold text-gray-800">About the Movie</h3>
           <p className="text-l text-gray-800">
-            Amanda Waller dispatch the Task Force X members to the Corto Maltese
-            island to destroy Jotunheim, a Nazi-era prison and laboratory.
-            Available in 4K.
+            {movie.overview}
           </p>
         </div>
 
@@ -216,7 +176,7 @@ const MoviePage = () => {
           </h2>
 
           <Slider {...settingsCast}>
-            {castdata.map((castInfo) => (
+            {cast.map((castInfo) => (
               <CastMembers
                 image={castInfo.profile_path}
                 castName={castInfo.original_name}
@@ -242,7 +202,7 @@ const MoviePage = () => {
                     <PosterSider
                         config={settingss}
                         title="BMS XCLUSIVE"
-                        posterimg={similarMovies}
+                        posterimg={recommended}
                         isDark={false}
                     />
                 </div>
