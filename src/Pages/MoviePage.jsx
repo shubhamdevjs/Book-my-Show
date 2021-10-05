@@ -27,8 +27,8 @@ const { movie } = useContext(MovieContext);
 
     useEffect(() => {
         const requestCast = async () => {
-            const getCast = await axios.get(`/movie/${id}/credits`);
-            setCast(getCast.data.cast);
+          const getCast = await axios.get(`/movie/${id}/credits`);
+          setCast(getCast.data.cast);
         };
         requestCast();
     }, [id]);

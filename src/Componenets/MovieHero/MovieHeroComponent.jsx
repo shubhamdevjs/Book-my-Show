@@ -1,28 +1,31 @@
 import React, { useState, useContext } from "react";
 import MovieInfo from "./MovieInfo";
+import PaymentModal from "../../PaymentModal/PaymentComponent";
 
 //Context
 import { MovieContext } from "../../Context/MovieContext";
 
 const MovieHero = () => {
-  // const [movie] = useState({
-  //   id: "asdf",
-  //   original_tite: "Fast and Furious 9",
-  //   overview:
-  //     "2h 14m • Action , Adventure , Comedy , Sci-Fi • 18+ • 5 Aug, 2021",
-  //   backdrop_path:
-  //     "https://in.bmscdn.com/iedb/movies/images/extra/horizontal_no_logo/mobile/listing/xxlarge/the-suicide-squad-et00309402-27-09-2021-01-23-30.jpg",
-  //   poster_path:
-  //     "https://in.bmscdn.com/iedb/movies/images/extra/vertical_logo/mobile/thumbnail/xxlarge/the-suicide-squad-et00309402-27-09-2021-01-23-30.jpg",
-  // });
+  const [isOpen, setIsOpen] = useState(false);
+  const [price, setPrice] = useState(0);
+
+  const rentMovies = () => {
+    setIsOpen(true);
+    setPrice(149);
+  };
+
+  const buyMovies = () => {
+    setIsOpen(true);
+    setPrice(599);
+  };
 
   const { movie } = useContext(MovieContext);
 
-  const genres = movie.genres ?.map(({name})=> name).join(", ");
-
+  const genres = movie.genres?.map(({ name }) => name).join(", ");
 
   return (
     <>
+      <PaymentModal setIsOpen={setIsOpen} isOpen={isOpen} price={price} />
       <div>
         {/* mobile and tab sized devices */}
         <div className="lg:hidden w-full ">
@@ -40,14 +43,16 @@ const MovieHero = () => {
             <div className="text-black flex flex-col gap-2 md:px-4">
               <h4>4K rating</h4>
               <h4>Languages: English </h4>
-              <h4>{movie.runtime} min • {genres}{" "}</h4>
+              <h4>
+                {movie.runtime} min • {genres}{" "}
+              </h4>
             </div>
           </div>
           <div className="flex items-center gap-3 md:px-4 md:w-screen text-xl px-4">
-            <button className="bg-red-500 w-full py-3 text-white font-semibold rounded-lg">
+            <button onClick={rentMovies} className="bg-red-500 w-full py-3 text-white font-semibold rounded-lg">
               Rent ₹149
             </button>
-            <button className="bg-red-500 w-full py-3 text-white font-semibold rounded-lg">
+            <button onClick={buyMovies} className="bg-red-500 w-full py-3 text-white font-semibold rounded-lg">
               Buy ₹599
             </button>
           </div>

@@ -1,10 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
+import PaymentModal from "../../PaymentModal/PaymentComponent";
 
 const MovieInfo = ({ movie }) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [price, setPrice] = useState(0);
+
   const genres = movie.genres?.map(({ name }) => name).join(", ");
+
+  const rentMovies = () => {
+    setIsOpen(true);
+    setPrice(149);
+  };
+
+  const buyMovies = () => {
+    setIsOpen(true);
+    setPrice(599);
+  };
 
   return (
     <>
+      <PaymentModal setIsOpen={setIsOpen} isOpen={isOpen} price={price} />
       <div className="flex flex-col gap-8">
         <h1 className="text-white text-5xl font-bold">
           {movie.origianl_title}
@@ -18,13 +33,13 @@ const MovieInfo = ({ movie }) => {
         </div>
         <div className="flex items-center gap-3 w-full">
           <button
-            // onClick={rentMovies}
+            onClick={rentMovies}
             className="bg-red-500 w-full py-3 text-white font-semibold rounded-lg"
           >
             Rent ₹149
           </button>
           <button
-            // onClick={butMovies}
+            onClick={buyMovies}
             className="bg-red-500 w-full py-3 text-white font-semibold rounded-lg"
           >
             Buy ₹599

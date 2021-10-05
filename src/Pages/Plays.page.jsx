@@ -5,7 +5,7 @@ import Posters from "../Componenets/Poster/Poster";
 
 const PlayPage = () => {
   return (
-    <>
+    <> 
       <div className="contianer mx-auto px-4 my-10">
         <div className="w-full lg:flex lg:flex-row-reverse gap-4">
           <div className="lg:w-3/4 p-4  rounded">

@@ -11,7 +11,7 @@ function NavSm() {
           </span>
         </div>
         <div className="h-9 w-8">
-            <BiSearch className="w-full h-full"/>
+          <BiSearch className="w-full h-full" />
         </div>
       </div>
     </>
@@ -29,7 +29,7 @@ function NavMd() {
           className="w-full bg-transparent border-none focus:outline-none "
           placeholder="Search for Movies Plays Sports Music Events and activities"
         />
-      </div>
+      </div>  
     </>
   );
 }
@@ -43,7 +43,7 @@ function NavLg() {
             <img
               src="https://i.ibb.co/zPBYW3H/imgbin-bookmyshow-office-android-ticket-png.png"
               alt="Logo"
-              className="w-full h-full"
+              className="w-full h-full "
             />
           </div>
           <div className="flex w-full items-center bg-white gap-3 rounded-md py-1 px-3 ">

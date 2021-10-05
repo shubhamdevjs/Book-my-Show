@@ -7,12 +7,14 @@ import MovieHOC from "./HOC/MovieHoc";
 
 //Pages
 import HomePage from "./Pages/HomePage";
-import MoviePage from "./Pages/MoviePage";
+import MoviePage from "./Pages/MoviePage"; 
 import PlayPage from "./Pages/Plays.page";
 
 axios.defaults.baseURL = "https://api.themoviedb.org/3";
-axios.defaults.params  = {};
-axios.defaults.params["api_key"] = process.env.REACT_APP_API_KEY;
+axios.defaults.params = {};
+axios.defaults.params["api_key"] = process.env.REACT_APP_API_KEY ;
+
+
 // function contact() {
 //   return <div>this is the contect of the center</div>;
 // }
