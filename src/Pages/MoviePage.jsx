@@ -1,7 +1,7 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import { useParams } from "react-router";
-import axios from "axios";  
+import axios from "axios";
 
 //icons
 import { FaCcVisa, FaCcApplePay } from "react-icons/fa";
@@ -15,42 +15,39 @@ import PosterSider from "../Componenets/Posterslider/PosterComponent";
 import { useContext } from "react/cjs/react.development";
 import { MovieContext } from "../Context/MovieContext";
 
-
 const MoviePage = () => {
+  const { movie } = useContext(MovieContext);
 
-const { movie } = useContext(MovieContext);
+  const { id } = useParams();
+  const [cast, setCast] = useState([]);
+  const [similarMovies, setSimilarMovies] = useState([]);
+  const [recommended, setRecommended] = useState([]);
 
-    const { id } = useParams();
-    const [cast, setCast] = useState([]);
-    const [similarMovies, setSimilarMovies] = useState([]);
-    const [recommended, setRecommended] = useState([]);
+  useEffect(() => {
+    const requestCast = async () => {
+      const getCast = await axios.get(`/movie/${id}/credits`);
+      setCast(getCast.data.cast);
+    };
+    requestCast();
+  }, [id]); 
 
-    useEffect(() => {
-        const requestCast = async () => {
-          const getCast = await axios.get(`/movie/${id}/credits`);
-          setCast(getCast.data.cast);
-        };
-        requestCast();
-    }, [id]);
+  useEffect(() => {
+    const requestSimilarMovies = async () => {
+      const getSimilarMovies = await axios.get(`/movie/${id}/similar`);
+      setSimilarMovies(getSimilarMovies.data.results);
+    };
+    requestSimilarMovies();
+  }, [id]);
 
-    useEffect(() => {
-        const requestSimilarMovies = async () => {
-            const getSimilarMovies = await axios.get(`/movie/${id}/similar`);
-            setSimilarMovies(getSimilarMovies.data.results);
-        };
-        requestSimilarMovies();
-    }, [id]);
-
-    useEffect(() => {
-        const requestRecommendedMovies = async () => {
-            const getRecommendedMovies = await axios.get(
-                `/movie/${id}/recommendations`
-            );
-            setRecommended(getRecommendedMovies.data.results);
-        };
-        requestRecommendedMovies();
-    }, [id]);
-
+  useEffect(() => {
+    const requestRecommendedMovies = async () => {
+      const getRecommendedMovies = await axios.get(
+        `/movie/${id}/recommendations`
+      );
+      setRecommended(getRecommendedMovies.data.results);
+    };
+    requestRecommendedMovies();
+  }, [id]);
 
   const settingsCast = {
     infinite: false,
@@ -118,17 +115,13 @@ const { movie } = useContext(MovieContext);
     ],
   };
 
- 
-
   return (
     <>
       <MovieHero />
       <div className="container my-12 px-4 lg:ml-20 lg:w-2/3">
         <div className="flex flex-col gap-3">
           <h3 className="text-2xl font-bold text-gray-800">About the Movie</h3>
-          <p className="text-l text-gray-800">
-            {movie.overview}
-          </p>
+          <p className="text-l text-gray-800">{movie.overview}</p>
         </div>
 
         <div className="my-8">
@@ -190,8 +183,12 @@ const { movie } = useContext(MovieContext);
         </div>
 
         <div className="my-8">
-        {/* <PosterSider config={settingss} title="BMS Exclusive" posters={similarMovies}/> */}
-        <PosterSider  config={settingss} title="Recommended Movies" posterimg={similarMovies} />
+          {/* <PosterSider config={settingss} title="BMS Exclusive" posters={similarMovies}/> */}
+          <PosterSider
+            config={settingss}
+            title="Recommended Movies"
+            posterimg={similarMovies}
+          />
         </div>
 
         <div className="my-8">
@@ -199,13 +196,13 @@ const { movie } = useContext(MovieContext);
         </div>
 
         <div className="my-8">
-                    <PosterSider
-                        config={settingss}
-                        title="BMS XCLUSIVE"
-                        posterimg={recommended}
-                        isDark={false}
-                    />
-                </div>
+          <PosterSider
+            config={settingss}
+            title="BMS XCLUSIVE"
+            posterimg={recommended}
+            isDark={false}
+          />
+        </div>
       </div>
     </>
   );

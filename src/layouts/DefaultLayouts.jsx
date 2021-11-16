@@ -4,7 +4,7 @@ import Navbar from "../Componenets/Navbar/NavbarComponent";
 
 const DefaultLayout=(props)=>{
     return(
-        <div>
+        <div> 
              <Navbar/>
              {props.children}
             

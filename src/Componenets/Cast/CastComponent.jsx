@@ -13,7 +13,7 @@ const CastMembers = (props) => {
             />
           </div>
           <h1 className="text-xl text-gray-800">{props.castName}</h1>
-          <h5 className="text-sm text-gray-500">as {props.character}</h5>
+          <h5 className="text-sm text-gray-500"> {props.character}</h5>
         </div>
       </div>
     </>

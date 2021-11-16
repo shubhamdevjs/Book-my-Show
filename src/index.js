@@ -7,7 +7,7 @@ import MovieProvider from "./Context/MovieContext";
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
+    <BrowserRouter> 
       <MovieProvider>
         <App />
       </MovieProvider>

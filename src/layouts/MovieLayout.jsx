@@ -1,6 +1,6 @@
 import React, {useEffect, useContext} from "react";
 import axios from "axios";
-import { useParams } from "react-router";
+import { useParams } from "react-router-dom";
 
 // Component
 import MovieNavbar from "../Componenets/Navbar/MovieNavbar";
