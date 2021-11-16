@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, {useContext, useEffect, useState } from "react";
 import Slider from "react-slick";
 import { useParams } from "react-router-dom";
 import axios from "axios";
@@ -12,7 +12,6 @@ import CastMembers from "../Componenets/Cast/CastComponent";
 import PosterSider from "../Componenets/Posterslider/PosterComponent";
 
 //context
-import { useContext } from "react/cjs/react.development";
 import { MovieContext } from "../Context/MovieContext";
 
 const MoviePage = () => {

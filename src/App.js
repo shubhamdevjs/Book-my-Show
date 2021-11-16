@@ -15,9 +15,9 @@ axios.defaults.params = {};
 axios.defaults.params["api_key"] = process.env.REACT_APP_API_KEY ;
 
 
-// function contact() {
-//   return <div>this is the contect of the center</div>;
-// }
+function contact() {
+  return <div>this is the contect of the center</div>;
+}
 
 function App() {
   return (
